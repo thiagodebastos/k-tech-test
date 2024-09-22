@@ -1,0 +1,5 @@
+/* eslint-disable */
+export default async () => {
+    const t = {};
+    return { "@nestjs/swagger": { "models": [[import("./users/dto/user.dto"), { "UserDto": { id: { required: true, type: () => String, description: "The user's id as stored in the database.\nWhen using MongoDB, we convert `_id`\nto a string and return that", example: "66ed6ea85b45f5c838d4d68a" }, name: { required: true, type: () => String, description: "The user's name", example: "Peter" }, email: { required: true, type: () => String, description: "The user's email", example: "peter.smith@gmail.com" }, phone: { required: true, type: () => Number, description: "The user's phone number", example: "0400000000" } } }], [import("./users/dto/create-user.dto"), { "CreateUserDto": {} }], [import("./users/dto/update-user.dto"), { "UpdateUserDto": {} }]], "controllers": [] } };
+};

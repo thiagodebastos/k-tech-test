@@ -1,0 +1,13 @@
+services:
+  mongo:
+    image: mongodb/mongodb-community-server:5.0.21-ubuntu2004
+    environment:
+      MONGODB_INITDB_ROOT_USERNAME: localtestuser
+      MONGODB_INITDB_ROOT_PASSWORD: LocalTestUser123
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodata:/data/db
+volumes:
+  mongodata:
+    driver: local

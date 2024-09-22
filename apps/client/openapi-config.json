@@ -1,0 +1,9 @@
+{
+  "schemaFile": "http://localhost:3000/api/openapi.json",
+  "apiFile": "./src/features/api/emptyApi.ts",
+  "apiImport": "emptySplitApi",
+  "outputFile": "./src/features/users/usersApi.ts",
+  "exportName": "usersApi",
+  "hooks": true,
+  "tag": true
+}
