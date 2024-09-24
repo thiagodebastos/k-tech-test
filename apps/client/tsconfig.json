@@ -6,12 +6,12 @@
     },
     {
       "path": "./tsconfig.node.json"
-    },
-    {
-      "path": "./tsconfig.test.json"
-    },
+    }
   ],
   "compilerOptions": {
+    "types": [
+      "vitest/globals"
+    ],
     "baseUrl": ".",
     "paths": {
       "@/*": [

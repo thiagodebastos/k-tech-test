@@ -58,10 +58,12 @@ export function UserForm({ user, onClose }: UserFormProps) {
     onClose()
   }
 
+  const formId = user ? `edit-user-form-${user.id}` : 'create-user-form'
+
   return (
     <div className="w-full">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)}>
+        <form data-testid={formId} onSubmit={form.handleSubmit(onSubmit)}>
           <FormField control={form.control} name="name" render={({ field }) => (
             <FormItem>
               <FormLabel>Name</FormLabel>
@@ -96,10 +98,10 @@ export function UserForm({ user, onClose }: UserFormProps) {
           )} >
           </FormField>
           <div className="flex flex-row gap-4">
-            <Button type="button" variant="outline" className="w-full" onClick={onClose}>
+            <Button type="button" aria-label="cancel" variant="outline" className="w-full" onClick={onClose}>
               Cancel
             </Button>
-            <Button type="submit" disabled={!form.formState.isValid} className="w-full">
+            <Button type="submit" aria-label="submit" disabled={!form.formState.isValid} className="w-full">
               <SaveIcon className="h-4 w-4" />
             </Button>
           </div>

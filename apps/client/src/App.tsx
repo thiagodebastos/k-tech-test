@@ -8,7 +8,6 @@ import { UserForm } from "./features/users/UserForm"
 function App() {
   const [userFormIsVisible, setUserFormIsVisible] = useState(false)
 
-
   return (
     <div className="p-8 items-center flex flex-col">
       <div className="mb-8">
@@ -16,7 +15,7 @@ function App() {
       </div>
       {!userFormIsVisible &&
         <div className="mb-8 w-[140px]">
-          <Button className="w-full" onClick={() => setUserFormIsVisible(true)}><PlusIcon /></Button>
+          <Button data-testid="create-user-button" className="w-full" onClick={() => setUserFormIsVisible(true)}><PlusIcon /></Button>
         </div>
       }
       {userFormIsVisible &&

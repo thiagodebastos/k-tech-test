@@ -30,7 +30,7 @@ export const UserCard = React.memo(function UserCard({ user }: UserCardProps) {
   const handleCancel = () => setIsEditing(false)
 
   return (
-    <Card className="mb-4 w-80">
+    <Card data-testid={`user-card-${user.id}`} className="mb-4 w-80">
       <CardHeader>
         <CardTitle>
           {!isEditing && user.name}
@@ -47,11 +47,11 @@ export const UserCard = React.memo(function UserCard({ user }: UserCardProps) {
             <div className="flex flex-col gap-3">
               <div className="flex gap-4">
                 <MailIcon />
-                <span>{user.email}</span>
+                <span aria-label="User email">{user.email}</span>
               </div>
               <div className="flex gap-4">
                 <PhoneIcon />
-                <span>{user.phone}</span>
+                <span aria-label="User phone">{user.phone}</span>
               </div>
             </div>
           )
@@ -61,10 +61,10 @@ export const UserCard = React.memo(function UserCard({ user }: UserCardProps) {
         <div className="flex  w-full justify-end gap-2">
           {!isEditing &&
             <>
-              <Button variant="outline" onClick={handleEdit}>
+              <Button aria-label="edit user" role="button" variant="outline" onClick={handleEdit}>
                 <PencilIcon className="h-4 w-4" />
               </Button>
-              <Button variant="destructive" size="icon" onClick={handleRemove}>
+              <Button aria-label="remove user" role="button" variant="destructive" size="icon" onClick={handleRemove}>
                 <TrashIcon className="h-4 w-4" />
               </Button>
             </>
