@@ -2,6 +2,11 @@ import { useToast } from "@/hooks/use-toast"
 import { CreateUserDto, UpdateUserDto, useCreateUserMutation, useFindAllUsersQuery, UserDto, useRemoveUserMutation, useUpdateUserMutation } from "./usersApi"
 import { useState } from "react"
 
+/**
+ * NOTE: simplifies the use of generated api endpoint hooks
+ * this allows gives us access to redux-toolkit-query hooks
+ * from anywhere in the app
+ */
 export const useUsers = () => {
   const { toast } = useToast()
   const [currentUser, setCurrentUser] = useState<UserDto | null>(null)

@@ -49,6 +49,10 @@ export function renderWithProviders(
   }
 }
 
+/**
+ * Useful utility for printing out HTML while testing
+ * especially when using tailwind and SVG icons
+ */
 export function debugClean(
   element: HTMLElement = document.body,
   cleanSVGs: boolean = true,

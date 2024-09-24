@@ -9,6 +9,10 @@ import {
 } from "@/features/users/usersApi"
 import { delay, http, HttpResponse } from "msw"
 
+/**
+ * NOTE: set up handlers for local mocks that can be used in testing and during development
+ */
+
 const GET_USERS_ENDPOINT = 'http://localhost:3000/api/v1/users'
 const CREATE_USER_ENDPOINT = 'http://localhost:3000/api/v1/users'
 const UPDATE_USER_ENDPOINT = 'http://localhost:3000/api/v1/users/:id'

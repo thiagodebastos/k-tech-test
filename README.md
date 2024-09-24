@@ -22,13 +22,19 @@ Vite React frontend.
 
 ### Developing
 
-1. Start the client and backend api servers:
+1. Start MongoDB Docker container:
+
+```bash
+docker compose up -d
+```
+
+2. Start the client and back-end API servers:
 
 ```bash
 npx turbo dev
 ```
 
-2. The client app is located in `apps/client` while the api backend is located in `apps/api`
+3. The client app is located in `apps/client` while the api backend is located in `apps/api`
 
 - API documentation is built with Swagger and can be accessed at [http://localhost:3000/api]()
 
@@ -37,28 +43,34 @@ npx turbo dev
   React Toolkit by leveraging `@rtk-query/codegen-openapi`.
   This is done by exposing the schema via a JSON file at [http://localhost:3000/api/openapi.json]()
 
+- Whenever changes are made to the API, make sure to re-generate `usersApi`:
+
+```bash
+# run from ./apps/client
+# make sure the API server is running first
+npm run generate:api
+```
+
 ## Notes
 
 - Do not store secrets in a GitHub repo. I have stored there
   here for demo purposes only.
+- To use the actual backend API and MongoDB database during development update `./apps/client/src/main.tsx`:
 
-## To Do
+```tsx
+// update this code to return early if you don't want mocking during development
+async function enableMocking() {
+  if (process.env.NODE_ENV !== "development") {
+    return;
+  }
 
-- send user friendly error messages from backend to client.
+  const { worker } = await import("./mocks/browser");
 
-  - for example, duplicate key errors can be sent and populate the toast notifications
-
-- add comprehensive e2e and integration testing
-
-  - Jest, React Testing Library and Mock Service Worker on the front-end
-  - Jest and Supertest for back-end tests
-
-- [Manage sensitive data with Docker secrets](https://docs.docker.com/engine/swarm/secrets/),
-  don't hard-code secrets
-
-- Automate redux api endpoint generation. For now, any changes to NestJS endpoints
-  and types requires code to be generated for the frontend with `npm run generate:api`
-  from the client app
+  // `worker.start()` returns a Promise that resolves
+  // once the Service Worker is up and ready to intercept requests.
+  return worker.start();
+}
+```
 
 ## Resources
 
