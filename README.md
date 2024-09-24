@@ -88,7 +88,10 @@ async function enableMocking() {
 - [React Hook Form](https://react-hook-form.com/) for form management
 - [Redux Toolkit](https://redux-toolkit.js.org/) for state management
   and API endpoint generation with RTKQ
-  - [Code Generation for OpenAPI](https://redux-toolkit.js.org/rtk-query/usage/code-generation)
+- [Code Generation for OpenAPI](https://redux-toolkit.js.org/rtk-query/usage/code-generation)
+- [Mock Service Worker](https://mswjs.io/) for streamlined mocking in dev and test
+- [Vitest](https://vitest.dev/) for better testing integration with Vite
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
 ### Back-end
 
